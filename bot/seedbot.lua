@@ -1,7 +1,6 @@
 package.path = package.path .. ';.luarocks/share/lua/5.2/?.lua'
   ..';.luarocks/share/lua/5.2/?/init.lua'
 package.cpath = package.cpath .. ';.luarocks/lib/lua/5.2/?.so'
-
 require("./bot/utils")
 
 VERSION = '2'
@@ -21,13 +20,9 @@ function on_msg_receive (msg)
     msg = pre_process_msg(msg)
     if msg then
       match_plugins(msg)
-      if redis:get("bot:markread") then
-        if redis:get("bot:markread") == "on" then
-          mark_read(receiver, ok_cb, false)
-        end
+      if redis:get("bot:markread") the
       end
     end
-  end
 end
 
 function ok_cb(extra, success, result)
